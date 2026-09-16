@@ -156,6 +156,14 @@ High-level architectural responsibility, patterns used (e.g., Repository, Single
 - Unhandled edge cases: Race conditions on concurrent writes.
 ```
 
+### Technical Fidelity Guardrails (No Lossy Summaries)
+
+Every generated document must preserve technical correctness without silent omissions:
+1. **Exact formulas**: Document mathematical expressions with exact scaling and precision (e.g. state `round(* 100.0) / 100.0` for 2 decimal places; never describe it as basic rounding).
+2. **Exhaustive branch conditions**: If logic branches on multiple `OR` / `AND` criteria (e.g. worker tier triggered by `yield >= 50 || weight >= 100 || occurrence >= 50000`), document every condition. Never drop alternative trigger paths.
+3. **Method-level line ranges**: Cite line ranges for each individual function or method. Do not lump entire `impl` blocks, interfaces, or classes into a single method citation.
+4. **Complete match / reject lists**: Never silently trim filter strings, extensions, or status codes in pseudo-code. State the complete set or use explicit count notation (`[...and 4 more]`).
+
 ---
 
 ## 5. Chat Communication Rules
