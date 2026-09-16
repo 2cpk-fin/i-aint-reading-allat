@@ -24,8 +24,8 @@ npx i-aint-reading-allat
 It prompts you with 2 choices in your terminal:
 ```text
 Choose code mastery level:
-  1) Completely new  - Deep plain-English explanations, real-world analogies, zero syntax jargon
-  2) Proficient      - Pseudo-code, architectural component breakdowns, Big-O complexity
+  1) Completely new - Plain English
+  2) Proficient     - Component breakdown
 
 Select choice [1 or 2]:
 ```

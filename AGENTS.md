@@ -17,8 +17,8 @@ Perform the following steps:
 2. **Determine mastery mode**:
    - Check if `i-aint-reading-allat/config.json` exists.
    - If missing, ask the user to choose:
-     - `1` / `new`: Completely New (deep plain English, real-world analogies, no code jargon)
-     - `2` / `proficient`: Proficient (pseudo-code, component breakdown, formal Big-O)
+     - `1` / `new`: Completely New (Plain English)
+     - `2` / `proficient`: Proficient (Component breakdown)
    - Save selection to `i-aint-reading-allat/config.json`.
 3. **Register the skill for current runtime**:
    - **Claude Code**: Run `claude plugin marketplace add <repo-url>` & `claude plugin install i-aint-reading-allat@i-aint-reading-allat` or import `skills/i-aint-reading-allat/SKILL.md`.

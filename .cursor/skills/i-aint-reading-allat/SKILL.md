@@ -38,8 +38,8 @@ The skill operates in one of two modes stored in `i-aint-reading-allat/config.js
 1. **First-run prompt**:
    Whenever the skill is invoked and `i-aint-reading-allat/config.json` does not exist, ask the user immediately:
    > "Choose your code mastery level:
-   > 1. **Completely New**: Deep plain English, real-world analogies, zero assumed coding knowledge.
-   > 2. **Proficient**: Pseudo-code, architectural components, Big-O complexity.
+   > 1. **Completely New**: Plain English
+   > 2. **Proficient**: Component breakdown
    > You can switch this at any time."
    Save choice (`{"mastery": "new"}` or `{"mastery": "proficient"}`) into `i-aint-reading-allat/config.json`.
 

@@ -57,8 +57,8 @@ if (currentConfig && currentConfig.mastery) {
   console.log(`Current level: ${currentConfig.mastery === 'new' ? '1) Completely New' : '2) Proficient'}`);
 }
 console.log('Choose code mastery level:');
-console.log('  1) Completely new  - Deep plain-English explanations, real-world analogies, zero syntax jargon');
-console.log('  2) Proficient      - Pseudo-code, architectural component breakdowns, Big-O complexity\n');
+console.log('  1) Completely new - Plain English');
+console.log('  2) Proficient     - Component breakdown\n');
 
 rl.question('Select choice [1 or 2]: ', (answer) => {
   const trimmed = answer.trim();
