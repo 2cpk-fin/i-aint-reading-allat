@@ -21,19 +21,23 @@ Run directly in your project root:
 npx i-aint-reading-allat
 ```
 
-It prompts you with 2 choices in your terminal:
+It prompts you with 2 quick questions in your terminal:
 ```text
-Choose code mastery level:
+1. Choose code mastery level:
   1) Completely new - Plain English
   2) Proficient     - Component breakdown
 
-Select choice [1 or 2]:
+2. Choose explanation length:
+  1) Detailed   - Deepest: every component, variables, step-by-step narrative
+  2) Medium     - Balanced: core exports, key components, concise flow
+  3) TLDR       - Quick summary: 1-paragraph overview + main component list
+  4) Extra TLDR - Ultra-compact: 3-5 bullet cheat-sheet (<10 lines per doc)
 ```
 
 Switch anytime:
 ```bash
-npx i-aint-reading-allat new         # Switch to Completely New
-npx i-aint-reading-allat proficient  # Switch to Proficient
+npx i-aint-reading-allat new            # Switch mastery
+npx i-aint-reading-allat length tldr    # Switch length (detailed|medium|tldr|extra_tldr)
 ```
 
 Or view complete platform instructions in [INSTALL.md](INSTALL.md).
@@ -67,6 +71,21 @@ Designed for developers learning an unfamiliar codebase quickly:
 - Pseudo-code logic summaries instead of syntax details.
 - Component contracts, side effects, and invariants.
 - Formal Big-O time and space complexity.
+
+---
+
+## 📏 4 Length Tiers
+
+Control how verbose your companion docs are (`detailed > medium > TLDR > extra TLDR`):
+
+| Length Tier | What you get | Output Size |
+| :--- | :--- | :--- |
+| **`detailed`** (Default) | Full deep dive: every class/function, exact line ranges, input/output walkthroughs, variables, step narratives, edge cases. | ~30-80 lines |
+| **`medium`** | Balanced: high-level story, public/exported components only, key state variables, concise speed note. Skips private helper details. | ~15-30 lines |
+| **`tldr`** | Compact summary: 1-paragraph overview, bulleted list of main exports with 1-sentence descriptions, 1-line speed note. | ~8-15 lines |
+| **`extra_tldr`** | Ultra-compact cheat-sheet: 3-5 bullet points total (file job, main entrypoint + line range, speed). | < 10 lines |
+
+Switch anytime via `/allat length <tier>` or `npx i-aint-reading-allat length <tier>`.
 
 ---
 
@@ -106,7 +125,9 @@ Acts like a digital shopping cart register: handles adding products, calculating
 | `/allat clean` | Purges orphaned companion docs for deleted or moved files. |
 | `/allat mode` | Prompts you to switch mastery mode (`new` vs `proficient`). |
 | `/allat mode <new\|proficient>` | Switches mastery mode immediately. |
-| `/allat status` | Checks current configuration and documented file count. |
+| `/allat length` | Prompts you to switch length tier. |
+| `/allat length <tier>` | Switches length immediately (`detailed`, `medium`, `tldr`, `extra_tldr`). |
+| `/allat status` | Checks current configuration (mastery and length) and documented file count. |
 
 ---
 

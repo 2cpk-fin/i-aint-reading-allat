@@ -22,7 +22,8 @@ The skill operates in one of two modes stored in `i-aint-reading-allat/config.js
 
 ```json
 {
-  "mastery": "new"
+  "mastery": "new",
+  "length": "detailed"
 }
 ```
 
@@ -41,7 +42,7 @@ The skill operates in one of two modes stored in `i-aint-reading-allat/config.js
    > 1. **Completely New**: Plain English
    > 2. **Proficient**: Component breakdown
    > You can switch this at any time."
-   Save choice (`{"mastery": "new"}` or `{"mastery": "proficient"}`) into `i-aint-reading-allat/config.json`.
+   Save choice (`{"mastery": "new", "length": "detailed"}` or `{"mastery": "proficient", "length": "detailed"}`) into `i-aint-reading-allat/config.json`.
 
 2. **Switching mode**:
    - `/allat mode`: Prompts the user to toggle mode.
@@ -51,7 +52,25 @@ The skill operates in one of two modes stored in `i-aint-reading-allat/config.js
 
 ---
 
-## 2. Directory & Git Safety
+## 2. Documentation Length Tiers
+
+Documentation volume is controlled by the `length` setting in `i-aint-reading-allat/config.json`:
+
+| Tier | Scope & Depth | Target Doc Size |
+| :--- | :--- | :--- |
+| **`detailed`** (Default) | Full schema: all functions, classes, state variables, line ranges, step-by-step flow narratives, edge cases. | Complete deep dive (30-80 lines) |
+| **`medium`** | Balanced: high-level story, public/exported components only, key state, concise speed summary. Skips private helpers and lengthy step sequences. | Moderate summary (15-30 lines) |
+| **`tldr`** | Compact: 1-paragraph overview, bulleted list of main exports (`name` (Lines X-Y) - 1 sentence), 1-line speed note. | Quick reference (8-15 lines) |
+| **`extra_tldr`** | Ultra-compact cheat-sheet: 3-5 bullet points total. What it does, primary entrypoint + lines, performance. | Cheat-sheet (< 10 lines) |
+
+### Switching Length Tier
+- `/allat length`: Prompts user to choose length tier (`detailed`, `medium`, `tldr`, `extra_tldr`).
+- `/allat length <detailed|medium|tldr|extra_tldr>`: Switches length tier immediately.
+- `/allat length extra-tldr` (hyphen or underscore accepted).
+
+---
+
+## 3. Directory & Git Safety
 
 Before writing any documentation:
 1. Check `.gitignore` in the project root.
@@ -64,7 +83,7 @@ Before writing any documentation:
 
 ---
 
-## 3. Exclusion & Source Filter Rules
+## 4. Exclusion & Source Filter Rules
 
 `/allat` must NEVER attempt to document dependencies, build artifacts, lockfiles, or media. Filter files with these strict rules:
 
@@ -83,11 +102,17 @@ Before writing any documentation:
 
 ---
 
-## 4. Documentation File Schema
+## 5. Documentation File Schema & Length Adaptations
 
 For every source file in the project, create or update a corresponding file in `i-aint-reading-allat/` mirroring the directory structure:
 - `src/services/billing.ts` -> `i-aint-reading-allat/src/services/billing.md`
 - `app/api/auth/route.js` -> `i-aint-reading-allat/app/api/auth/route.md`
+
+### Schema Adaptation by Length Tier
+- **`detailed`**: Full schema below (all components, line ranges, parameters, step-by-step narratives, variables, performance, edge cases).
+- **`medium`**: Overview, public/exported components only, key state, concise speed summary. Skips private helpers and lengthy step sequences.
+- **`tldr`**: 1-paragraph overview, bulleted list of main exports (`name` (Lines X-Y) - 1-sentence job), 1-line speed note.
+- **`extra_tldr`**: 3-5 bullet points total (<10 lines per doc): Role, primary entry point + lines, speed rating.
 
 ### Schema for `new` Mode (Completely New)
 
@@ -166,7 +191,7 @@ Every generated document must preserve technical correctness without silent omis
 
 ---
 
-## 5. Chat Communication Rules
+## 6. Chat Communication Rules
 
 When this skill is active:
 1. **Never dump raw code into chat**: Vibe coders cannot or do not want to read syntax.
@@ -176,17 +201,20 @@ When this skill is active:
 
 ---
 
-## 6. Commands
+## 7. Commands
 
 - `/allat`: Scans project source files (excluding dependencies, build outputs, media, lockfiles), purges orphaned docs, and generates companion docs. Caps at 50 core files before requesting approval.
 - `/allat <file-path>`: Generates or updates documentation for a specific file.
 - `/allat clean`: Removes orphaned companion docs whose original source files were deleted or moved.
 - `/allat mode`: Checks or switches current mastery mode (`new` vs `proficient`).
-- `/allat status`: Displays current configuration, total documented files, and detected source files.
+- `/allat mode <new|proficient>`: Switches mastery mode immediately.
+- `/allat length`: Checks or switches current length tier (`detailed`, `medium`, `tldr`, `extra_tldr`).
+- `/allat length <detailed|medium|tldr|extra_tldr>`: Switches length tier immediately.
+- `/allat status`: Displays current configuration (mastery and length), total documented files, and detected source files.
 
 ---
 
-## 7. Smart Sync Rule (No Wasteful Regens)
+## 8. Smart Sync Rule (No Wasteful Regens)
 
 Do NOT regenerate full documentation on every small edit. Follow these thresholds:
 
@@ -201,7 +229,7 @@ Do NOT regenerate full documentation on every small edit. Follow these threshold
 
 ---
 
-## 8. Lifecycle: Deletions, Renames & Orphan Cleanup
+## 9. Lifecycle: Deletions, Renames & Orphan Cleanup
 
 Never leave stale documentation for non-existent code. Maintain strict 1:1 parity:
 

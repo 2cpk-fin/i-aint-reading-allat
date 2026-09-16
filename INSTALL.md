@@ -24,21 +24,25 @@ Run directly in your project root using Node:
 npx i-aint-reading-allat
 ```
 
-It will prompt:
+It prompts you with 2 quick questions:
 ```text
-Choose code mastery level:
+1. Choose code mastery level:
   1) Completely new - Plain English
   2) Proficient     - Component breakdown
 
-Select choice [1 or 2]:
+2. Choose explanation length:
+  1) Detailed   - Deepest: every component, variables, step-by-step narrative
+  2) Medium     - Balanced: core exports, key components, concise flow
+  3) TLDR       - Quick summary: 1-paragraph overview + main component list
+  4) Extra TLDR - Ultra-compact: 3-5 bullet cheat-sheet (<10 lines per doc)
 ```
 
-This saves your choice to `i-aint-reading-allat/config.json` and ensures `i-aint-reading-allat/` is in `.gitignore`.
+This saves your choices to `i-aint-reading-allat/config.json` and ensures `/i-aint-reading-allat/` is in `.gitignore`.
 
-To switch modes anytime via terminal:
+To switch anytime via terminal:
 ```bash
-npx i-aint-reading-allat new         # Switch to Completely New
-npx i-aint-reading-allat proficient  # Switch to Proficient
+npx i-aint-reading-allat new            # Switch mastery
+npx i-aint-reading-allat length tldr    # Switch length (detailed|medium|tldr|extra_tldr)
 ```
 
 ---
@@ -106,9 +110,10 @@ Type `$allat` in chat.
 
 ---
 
-## 🔄 Switching Mastery Levels Anytime
+## 🔄 Switching Settings Anytime
 
 In chat with your AI:
 - `/allat mode`: Re-prompts the 2-choice mastery question.
-- `/allat mode new`: Sets mastery to Completely New.
-- `/allat mode proficient`: Sets mastery to Proficient.
+- `/allat mode <new|proficient>`: Sets mastery immediately.
+- `/allat length`: Re-prompts the 4-choice length tier question.
+- `/allat length <detailed|medium|tldr|extra_tldr>`: Sets length immediately.

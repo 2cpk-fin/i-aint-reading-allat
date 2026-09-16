@@ -16,16 +16,16 @@ Perform the following steps:
 1. **Verify gitignore**: Ensure `/i-aint-reading-allat/` is in the project `.gitignore`. Append it if missing.
 2. **Determine mastery mode**:
    - Check if `i-aint-reading-allat/config.json` exists.
-   - If missing, ask the user to choose:
+   - If missing, ask the user to choose mastery mode:
      - `1` / `new`: Completely New (Plain English)
      - `2` / `proficient`: Proficient (Component breakdown)
-   - Save selection to `i-aint-reading-allat/config.json`.
+   - Save selection with default length (`{"mastery": "<choice>", "length": "detailed"}`) to `i-aint-reading-allat/config.json`.
 3. **Register the skill for current runtime**:
    - **Claude Code**: Run `claude plugin marketplace add <repo-url>` & `claude plugin install i-aint-reading-allat@i-aint-reading-allat` or import `skills/i-aint-reading-allat/SKILL.md`.
    - **Cursor**: Copy `skills/i-aint-reading-allat/SKILL.md` to `.cursor/skills/i-aint-reading-allat/SKILL.md` in workspace.
    - **Antigravity / Gemini CLI**: Run `agy plugin install <repo-url>` or load `gemini-extension.json`.
    - **Codex**: Run `codex plugin marketplace add <repo-url>` & `codex plugin add i-aint-reading-allat@i-aint-reading-allat`.
-4. **Confirm to user in plain English**: Confirm installation, state current mastery mode, and note that `/allat` can be used to scan or switch modes anytime.
+4. **Confirm to user in plain English**: Confirm installation, state current mastery mode & length tier, and note that `/allat mode` or `/allat length` can switch settings anytime.
 
 ## Repository Map
 
