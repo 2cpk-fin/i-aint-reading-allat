@@ -1,0 +1,12 @@
+{
+  "name": "i-aint-reading-allat",
+  "description": "Plain-English companion documentation for vibe coders and learners.",
+  "plugins": [
+    {
+      "name": "i-aint-reading-allat",
+      "description": "Maintains plain-English codebase documentation in i-aint-reading-allat/.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}

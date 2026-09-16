@@ -1,0 +1,19 @@
+{
+  "name": "i-aint-reading-allat",
+  "version": "1.0.0",
+  "description": "Plain-English codebase companion docs for vibe coders in a gitignored i-aint-reading-allat/ directory.",
+  "main": "bin/cli.js",
+  "bin": {
+    "i-aint-reading-allat": "bin/cli.js"
+  },
+  "keywords": [
+    "vibe-coding",
+    "documentation",
+    "ai-agent",
+    "claude-plugin",
+    "skills",
+    "explainer"
+  ],
+  "author": "twoseepeakay",
+  "license": "MIT"
+}

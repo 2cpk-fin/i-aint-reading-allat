@@ -1,0 +1,25 @@
+name: Sync Cursor Skill
+
+on:
+  push:
+    paths:
+      - 'skills/**'
+    branches:
+      - main
+      - master
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Copy Canonical Skill to Cursor Skill Mirror
+        run: |
+          mkdir -p .cursor/skills/i-aint-reading-allat
+          cp skills/i-aint-reading-allat/SKILL.md .cursor/skills/i-aint-reading-allat/SKILL.md
+      - name: Commit changes if out of sync
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .cursor/skills/
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: sync cursor skill mirror" && git push)

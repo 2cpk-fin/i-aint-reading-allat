@@ -1,0 +1,11 @@
+{
+  "name": "i-aint-reading-allat",
+  "version": "1.0.0",
+  "description": "Auto-generates plain-English companion documentation for vibe coders in i-aint-reading-allat/.",
+  "skills": [
+    {
+      "name": "i-aint-reading-allat",
+      "path": "skills/i-aint-reading-allat/SKILL.md"
+    }
+  ]
+}

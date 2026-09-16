@@ -1,0 +1,16 @@
+{
+  "$schema": "https://www.schemastore.org/claude-code-marketplace.json",
+  "name": "i-aint-reading-allat",
+  "description": "Plain-English codebase companion docs for vibe coders and learners. Explains functions, variables, lines, and complexity without raw code slop.",
+  "owner": {
+    "name": "twoseepeakay"
+  },
+  "plugins": [
+    {
+      "name": "i-aint-reading-allat",
+      "description": "Generates and maintains plain-English companion docs in i-aint-reading-allat/.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}
